@@ -1,37 +1,28 @@
-## Welcome to GitHub Pages
+## DESCRIPTION
+The task of Chinese text detection is to localize the regions in a 2D image which contain Chinese characters. The task of Chinese text recognition is, given the localized regions including text, to convert each region into machine-encoded text. It is an important technique for understanding text information in 2D images, and many other applications such as text-to-speech, machine translation, text mining, etc.
 
-You can use the [editor on GitHub](https://github.com/Wang-Shuo/Chinese-Text-Detection-and-Recognition/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+## PROGRESS
+### WEEK 1
+1. 【Build website】We chose github pages for project as our project website, considering that it is easy for us to maintain and to lead others to our open source codes on github.
+2. 【Paper search】The following papers are  what we found for now.
+  - [1] [Text Detection and Recognition in Imagery: A Survey](http://ucassdl.cn/publication/ye-PAMI2015.pdf)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### WEEK 2
+coming soon
+### WEEK 3
+coming soon 
+### WEEK 4
+coming soon
+### WEEK 5
+coming soon
 
-### Markdown
+## DEMO
+coming soon
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Wang-Shuo/Chinese-Text-Detection-and-Recognition/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+## TEAM MEMBERS
+Name | Stu-ID | Contact
+-----|--------|--------
+王硕 | M201671781 | 15008455161
+沈钊 | M201671775  | 
+孙保杰 | baz  | baz
+周乘 | baz  | baz
