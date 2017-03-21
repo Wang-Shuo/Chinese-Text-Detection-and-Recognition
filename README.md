@@ -6,10 +6,8 @@ The task of Chinese text detection is to localize the regions in a 2D image whic
 
 #### Overview
 
-- 搭建项目网站
-
-- 阅读相关论文
-
+* 搭建项目网站
+* 阅读相关论文
 
 #### Details
 
@@ -38,6 +36,10 @@ The task of Chinese text detection is to localize the regions in a 2D image whic
 #### References
 
 1. Text Detection and Recognition in Imagery: A Survey, TPAMI, 2015
+
+
+
+
 
 ### WEEK 2
 
