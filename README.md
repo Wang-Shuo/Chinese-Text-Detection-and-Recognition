@@ -79,10 +79,43 @@ The task of Chinese text detection is to localize the regions in a 2D image whic
 2. 杨飞，自然场景图像中的文字检测综述，电子设计工程，2016
 3. MathWorks:  [Automatically Detect and Recognize Text in Natural Images](https://cn.mathworks.com/help/vision/examples/automatically-detect-and-recognize-text-in-natural-images.html?requestedDomain=www.mathworks.com)
 
+
+
+
+
 ### WEEK 3
 
-coming soon 
+#### Overview
+
+* 确定了人员的分工
+* 尝试了一种文本检测的方案
+* 在Windows下配置opencv开发环境
+
+#### Details
+
+经过前两周的探讨，我们基本确定了人员的分工：王硕和沈钊主要负责文本检测模块，周乘和孙保杰主要负责文本识别模块。
+
+在查找文本检测方面的文章时，我们看到一篇文章叫《Real-Time Scene Text Localization and Recognition》，这是2012年CVPR上的一篇文章，进一步的搜索发现，作者在这篇文章中提出的自然场景下的文本检测算法*The "Neumann-Matas algorithm" *已经有人在opencv_contrib库中实现了。于是我们的想法是先使用这个方法跑一个demo看看检测效果，再决定要不要基于这种检测方法做后续的文本识别。
+
+于是我们开始在Windows平台上安装编译opencv_contrib库和配置Python环境。Python环境的配置相对简单，opencv_contrib库只能通过源码编译安装，所以过程就相对麻烦一点。整个环境的配置主要分为以下几步：
+
+1. Python 3.5的安装
+2. Visual Studio 2015的安装
+3. Cmake的安装
+4. Opencv 3.2和opencv_contrib的源码编译
+
+安装和配置细节在这里就不详细说明，折腾了好几次才最终配置成功。当cv2和cv2.text模块都能正常导入不报错时，证明环境配置基本完成。
+
+![import_success](http://o9zemtn5i.bkt.clouddn.com/import_success.JPG)
+
+配置完环境后，我们就用Python写了文本检测的Demo脚本，使用别人训练好的数据，看看检测效果。我们试了几张图片，检测效果如下：
+
+
+
+
+
 ### WEEK 4
+
 coming soon
 ### WEEK 5
 coming soon
