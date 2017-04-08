@@ -110,7 +110,13 @@ The task of Chinese text detection is to localize the regions in a 2D image whic
 
 配置完环境后，我们就用Python写了文本检测的Demo脚本，使用别人训练好的数据，看看检测效果。我们试了几张图片，检测效果如下：
 
+![dres_1](http://o9zemtn5i.bkt.clouddn.com/dres_1.JPG)
 
+
+
+![dres_2](http://o9zemtn5i.bkt.clouddn.com/dres_2.JPG)
+
+可以看出，该方法的检测效果并不理想，把很多不是文本区域给框出来了，虚警率太高，并且有很多参数需要调，对中文的检测效果也不理想，所以我们决定再寻找其他文本检测方法。
 
 
 
