@@ -118,13 +118,76 @@ The task of Chinese text detection is to localize the regions in a 2D image whic
 
 可以看出，该方法的检测效果并不理想，把很多不是文本区域给框出来了，虚警率太高，并且有很多参数需要调，对中文的检测效果也不理想，所以我们决定再寻找其他文本检测方法。
 
+#### References
+
+1. Neumann L., Matas J.: Real-Time Scene Text Localization and Recognition, CVPR 2012
+2. Opencv Documentation: [Class-specific Extremal Regions for Scene Text Detection](http://docs.opencv.org/3.0-beta/modules/text/doc/erfilter.html)
+3. Github opencv_contrib: [modules/text/samples](https://github.com/opencv/opencv_contrib/blob/master/modules/text/samples/textdetection.py)
+4. [OpenCV install opencv_contrib on Windows](http://stackoverflow.com/questions/37517983/opencv-install-opencv-contrib-on-windows)
+5. [Building and Installing OpenCV with Extra Modules on Windows 7 64-bit](https://putuyuwono.wordpress.com/2015/04/23/building-and-installing-opencv-3-0-on-windows-7-64-bit/)
+
+
+
 
 
 ### WEEK 4
 
-coming soon
+#### Overview
+
+* 尝试了CTPN文本检测模型
+* 寻找中文识别解决方案
+
+#### Details
+
+由于上周尝试的一种文本检测效果不太理想，所以这周我们继续寻找文本检测的解决方案。上周我们尝试的方案是一种bottom-up的思路，通常是利用底层的字符或笔画特征来找到可能区域，再做非文本区域的过滤，文本线的构建和确认等，事实证明这种方法不够鲁棒，这周我们决定换种思路，于是我们尝试了这篇论文中提到的CTPN模型：《Detecting Text in Natural Image with Connectionist Text Proposal Network》。该方法利用了VGG16模型的最后一层卷积层的特征，借鉴了经典的目标检测模型Faster R-CNN的方法，将整个文本区域的检测划分成一个个等宽的小块，最后再做融合。大致的pipeline分为以下三个部分：
+
+1. Detecting Text in Fine-scale Proposals
+2. Recurrent Connectionist Text Proposals
+3. Side-refinement
+
+下图是文章中提出的模型的检测框架：
+
+![architecture](http://o9zemtn5i.bkt.clouddn.com/artectiure.JPG)
+
+我们尝试在作者给出的[demo网站](http://textdet.com/ )上试了几张图片，发现检测效果确实不错。于是我们决定采用CTPN模型作为我们项目的文本检测方案。下面是检测效果：
+
+![11](http://o9zemtn5i.bkt.clouddn.com/11.JPG)
+
+![12](http://o9zemtn5i.bkt.clouddn.com/12.JPG)
+
+可以看到检测效果比上周的方法好很多，并且模型的鲁棒性很好。对于我们的项目来说，一个好的文本检测结果对后续的文本识别至关重要。
+
+确定了文本检测方案，接下来就是确定文本识别方案。结合中文的结构、类别众多等特点，我们如果自己建字库来训练的话，工作量可能会很大。所以我们在网上寻找中文识别的解决方案，最终确定了目前由谷歌维护的开源的文字识别引擎Tesseract，并且采用了其最新版本，即Tesseract 4.0，识别准确率相对于前面的版本有一定的提升。
+
+我们从源码编译安装了Tesseract 4.0，做了一些文本识别尝试，发现对英文的识别效果不错，对中文的识别效果要看图片背景，当背景太杂或者文本太倾斜的话，识别效果就不太理想，这也是我们后期需要在调用Tesseract进行识别时需要进行优化的地方。
+
+#### References
+
+1. Zhi Tian,Weilin Huang, Tong He: detecting text in natural image with connectionist text proposal network, ECCV, 2016
+2. Shaoqing Ren, Kaiming He, Ross Girshick: Faster R-CNN: Towards Real Time Object Detection with Region Proposal Networks, TPAMI, 2015
+3. Github : [Tesseract-ocr](https://github.com/tesseract-ocr/tesseract)
+4. Github: [CTPN](https://github.com/tianzhi0549/CTPN)
+
+
+
+
+
 ### WEEK 5
-coming soon
+
+#### Overview
+
+* 系统的集成与调试
+* 系统优化
+* 报告撰写与制作PPT
+
+#### Details
+
+这周我们开始讲文本检测模块和文本识别模块进行集成，系统主要采用的是Python语言，所以Tesseract也是调用的Python接口，使用到了Github上别人写的开源封装库[PyOCR](https://github.com/jflesch/pyocr)，整个系统是运行在Linux上，文本检测用到了CTPN模型作者已经训练好的训练数据。跑了几张图片后，发现英文的识别准确率还可以，但是对中文的识别准确率还是不太好，从网上查阅资料后，认为对于中文识别准确率不高这一问题，一方面是Tesseract识别引擎本身对中文的识别准确率就不太好，另一方面可能是因为自然背景和文本的倾斜等因素造成的，所以我们决定在对文本进行识别之前，对检测到的文本先进行一些预处理，比如先使用大津法进行二值化处理，再进行倾斜校正，可能会对识别准确率有所提高。
+
+#### References
+
+1. [Improving the Quality of the output](https://github.com/tesseract-ocr/tesseract/wiki/ImproveQuality)
+2. [PyOCR](https://github.com/jflesch/pyocr)
 
 ## DEMO
 coming soon
