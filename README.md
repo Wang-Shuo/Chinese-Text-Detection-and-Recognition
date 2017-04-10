@@ -190,7 +190,7 @@ The task of Chinese text detection is to localize the regions in a 2D image whic
 2. [PyOCR](https://github.com/jflesch/pyocr)
 
 ## DEMO
-<iframe height=498 width=510 src='http://player.youku.com/embed/XMjcwMDEyNTQ3Mg==' frameborder=0 'allowfullscreen'></iframe>
+demo video: <iframe height=498 width=510 src='http://player.youku.com/embed/XMjcwMDEyNTQ3Mg==' frameborder=0 'allowfullscreen'></iframe>
 
 ## TEAM MEMBERS
 | Name |     ID     |       Contact        |
